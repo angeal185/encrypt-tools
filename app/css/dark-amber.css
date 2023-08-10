@@ -1,0 +1,119 @@
+/* dark-amber.css */
+
+body {
+  background-color: #1C1C1C;
+  color: #D8D8D8;
+
+}
+
+nav {
+  box-shadow: 0 0 8px black;
+}
+
+.container {
+  background-color: #3D3D3D;
+}
+
+/* Header */
+h1 {
+  color: #FFA500;
+}
+
+/* Input fields and buttons */
+.form-group label {
+  color: #FFA500;
+}
+
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #D8D8D8;
+  opacity: 1; /* Firefox */
+}
+
+.form-control,
+.form-control:focus {
+  background-color: #3D3D3D;
+  color: #D8D8D8;
+  border-color: #FFA500;
+
+}
+
+.btn-primary {
+  background-color: #FFA500;
+  border-color: #FFA500;
+  color: #1C1C1C;
+}
+
+.btn-primary:hover {
+  background-color: #FF8C00;
+  border-color: #FF8C00;
+}
+
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 5px #FFA500;
+  }
+  50% {
+    box-shadow: 0 0 20px #FFA500;
+  }
+  100% {
+    box-shadow: 0 0 5px #FFA500;
+  }
+}
+
+/* Ciphertext and Decrypted Message areas */
+#ciphertext,
+#decrypted,
+#generatedCiphertext,
+#Instructions {
+  background-color: #3D3D3D;
+  color: #D8D8D8;
+  border-color: #FFA500;
+}
+
+.menu-side {
+  background-color: #1C1C1C;
+  opacity: 0.8;
+}
+
+.menu-lnk {
+  border-bottom: 1px solid #FFA500; /* Use a dark red color for the border (Fallout 3 style) */
+}
+
+.menu-lnk:hover {
+  background-color: #FFA500; /* Change the background color on hover */
+}
+
+.menu-lnk:hover a {
+  color: #1C1C1C;
+}
+
+.menu-lnk a {
+  color: #D8D8D8; /* Set the link color to light gray */
+}
+
+.menu-lnk .fa {
+  color: #D8D8D8; /* Set the icon color to light gray */
+}
+
+/* Navbar Bottom */
+nav.navbar.fixed-bottom {
+  background-color: #1C1C1C;
+}
+
+nav.navbar.fixed-bottom span {
+  color: #D8D8D8;
+}
+
+hr {
+  border-top: 1px solid #FFA500;
+}
+
+/* Card Styles */
+.card {
+  background-color: #3D3D3D;
+  color: #D8D8D8;
+}
+
+.card-title {
+  color: #FFA500;
+}

@@ -1,0 +1,115 @@
+body {
+  background-color: #121212;
+  color: #C2FF00;
+}
+
+nav {
+  box-shadow: 0 0 8px black;
+}
+
+.container {
+  background-color: #202020;
+}
+
+/* Header */
+h1 {
+  color: #C2FF00;
+}
+
+/* Input fields and buttons */
+.form-group label {
+  color: #C2FF00;
+}
+
+.form-control::placeholder {
+  color: #C2FF00;
+  opacity: 0.6;
+}
+
+.form-control,
+.form-control:focus {
+  background-color: #202020;
+  color: #C2FF00;
+  border-color: #C2FF00;
+}
+
+.btn-primary {
+  background-color: #C2FF00;
+  border-color: #C2FF00;
+  color: #121212;
+}
+
+.btn-primary:hover {
+  background-color: #A0CF00;
+  border-color: #A0CF00;
+}
+
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 5px #C2FF00;
+  }
+  50% {
+    box-shadow: 0 0 20px #C2FF00;
+  }
+  100% {
+    box-shadow: 0 0 5px #C2FF00;
+  }
+}
+
+/* Ciphertext and Decrypted Message areas */
+#ciphertext,
+#decrypted,
+#generatedCiphertext,
+#Instructions {
+  background-color: #202020;
+  color: #C2FF00;
+  border-color: #C2FF00;
+}
+
+.menu-side {
+  background-color: #121212;
+  opacity: 0.8;
+}
+
+.menu-lnk {
+  border-bottom: 1px solid #C2FF00;
+}
+
+.menu-lnk:hover {
+  background-color: #C2FF00;
+}
+
+.menu-lnk:hover a {
+  color: #121212;
+}
+
+.menu-lnk a {
+  color: #C2FF00;
+}
+
+.menu-lnk .fa {
+  color: #C2FF00;
+}
+
+/* Navbar Bottom */
+nav.navbar.fixed-bottom {
+  background-color: #121212;
+}
+
+nav.navbar.fixed-bottom span {
+  color: #C2FF00;
+}
+
+hr {
+  border-top: 1px solid #C2FF00;
+}
+
+/* Card Styles */
+.card {
+  background-color: #202020;
+  color: #C2FF00;
+}
+
+.card-title {
+  color: #C2FF00;
+}

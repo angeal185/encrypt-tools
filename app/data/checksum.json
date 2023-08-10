@@ -1,0 +1,100 @@
+{
+  "js": [{
+      "file": "./app/js/sha3.js",
+      "lastUpdated": "",
+      "integrity": "IgM0TEO7KlztyXNYGP03RUe4NvtK+/xJz5snwY6meizUXC6EQuecQzMB9xZQNdoEE04u1gfpF5KGPIWAzAAodw==",
+      "sha": "512"
+  },{
+      "file": "./app/js/blake2.js",
+      "lastUpdated": "",
+      "integrity": "e+uouWcDhfrUzMhDiWxpYDWzC8o6Ps3Vj4EUdsNHEwfghHYxemEaAbBnfxO4Z5RiTMRTWPlJ2GzsixCy/HIDfw==",
+      "sha": "512"
+  },{
+      "file": "./app/js/whirlpool.js",
+      "lastUpdated": "",
+      "integrity": "Y5Vf+amj0jWlstahsG435IecHz0X/dNHfXqZqYqEiC5EZEz4/4BxwhnZy3+GJeAjEiZXB9BNVHU8yfLWvmnMKA==",
+      "sha": "512"
+  },{
+      "file": "./app/js/qrjs.js",
+      "lastUpdated": "",
+      "integrity": "VHy5kKbxQrqSWfw8UOKxXviKOo9s1aOIUdm5ZTR/usAFIh4LHBSxC/u9qBkWcr5G3MrRUlIZD8STAhk9lXVeBw==",
+      "sha": "512"
+  },{
+      "file": "./app/js/xscript.js",
+      "lastUpdated": "",
+      "integrity": "6pZJb7UqWdQTOJl1eKtHIk/c28UnnsqTVgiUwRsP2L7W9DQ/xlm2EYwyYGbj0YhH2mGW2TAB0iAaXM8YTlLWNw==",
+      "sha": "512"
+  },{
+      "file": "./app/data/common-passwords.js",
+      "lastUpdated": "",
+      "integrity": "ldxPsXIAPIeaE/5f6WbvMJ5TjBItzevII8/0sk4um589kbOoU3ugK01Lb6gTnIm7hSuXmY99hKlcVLeqvJ2FNA==",
+      "sha": "512"
+  },{
+      "file": "",
+      "lastUpdated": "",
+      "integrity": "",
+      "sha": "512"
+  },{
+      "file": "",
+      "lastUpdated": "",
+      "integrity": "",
+      "sha": "512"
+  },{
+      "file": "",
+      "lastUpdated": "",
+      "integrity": "",
+      "sha": "512"
+  },{
+      "file": "",
+      "lastUpdated": "",
+      "integrity": "",
+      "sha": "512"
+  },{
+      "file": "",
+      "lastUpdated": "",
+      "integrity": "",
+      "sha": "512"
+  },{
+      "file": "",
+      "lastUpdated": "",
+      "integrity": "",
+      "sha": "512"
+  },{
+      "file": "",
+      "lastUpdated": "",
+      "integrity": "",
+      "sha": "512"
+  },{
+      "file": "",
+      "lastUpdated": "",
+      "integrity": "",
+      "sha": "512"
+  },{
+      "file": "",
+      "lastUpdated": "",
+      "integrity": "",
+      "sha": "512"
+  },{
+      "file": "",
+      "lastUpdated": "",
+      "integrity": "",
+      "sha": "512"
+  }],
+
+  "css": [{
+      "file": "./app/css/bootstrap.min.css",
+      "lastUpdated": "",
+      "integrity": "fzDyT+/0+Q1zT/CPyJp2RCzvNGG6N5AbvtV5D+SURyxYyT83UFU9E1YzzXQDHXxCuD/q5R1AosszP7RZiNcCSw==",
+      "sha": "512"
+  },{
+      "file": "./app/css/font-awesome.min.css",
+      "lastUpdated": "",
+      "integrity": "k8GWsjCYcFT8JOnp0y/aFF/j7cFG0TwCflqiBF2+oKU/9UfDcn4aEuFH2ptJnWCVbkGwJGBmcxjroP/HR22v8g==",
+      "sha": "512"
+  },{
+      "file": "",
+      "lastUpdated": "",
+      "integrity": "",
+      "sha": "512"
+  }]
+}

@@ -1,0 +1,142 @@
+/* styles.css */
+
+body {
+
+  font-family: 'Courier New', monospace;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  box-shadow: 0 0 8px black;
+}
+
+.container {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Header */
+h1 {
+  font-size: 36px;
+  text-align: center;
+}
+
+
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  opacity: 1; /* Firefox */
+}
+
+.btn-primary {
+  transition: background-color 0.3s ease;
+  animation: glowing 2s infinite;
+}
+
+.jcc {
+  justify-content: center !important;
+}
+
+.menu-side {
+  width: 240px;
+  position: fixed;
+  display: block;
+  height: 100%;
+  left: -240px;
+  top: 3rem;
+  opacity: 0.8;
+  max-height: calc(100vh - 3rem); /* Limit the maximum height of the menu to the viewport height minus the top margin */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-right: 10px;
+  z-index: 999;
+  transition: left 0.3s ease; /* Add a transition for smoother animation */
+}
+
+.menu-side.show {
+  left: 0;
+}
+
+.menu-lnk {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+
+.menu-lnk a {
+  list-style: none;
+  padding: 15px;
+  text-decoration: none;
+  font-size: 18px;
+  margin-left: 10px; /* Add some spacing between the icon and the link text */
+  width: 100%
+}
+
+.menu-lnk .fa {
+  font-size: 24px;
+}
+
+.menu-sub {
+  padding: 0;
+  overflow-y: auto;
+}
+
+#menu-bar {
+  cursor: pointer;
+}
+
+/* Navbar Bottom */
+nav.navbar.fixed-bottom {
+  box-shadow: none;
+  padding: 10px;
+  text-align: center;
+}
+
+nav.navbar.fixed-bottom span {
+  font-size: 14px;
+}
+
+/* Main Instructions textarea */
+#Instructions {
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+/* Card Styles */
+.card {
+  cursor: pointer;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.fr{
+  float: right;
+}
+
+.fl{
+  float: left
+}
+
+.cp{
+  cursor: pointer;
+}
+
+#qrcodebox > img{
+  margin-bottom: 3rem;
+}
+
+.qr-img {
+    display: flex;
+    justify-content: center;
+}

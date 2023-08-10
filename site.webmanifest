@@ -1,0 +1,20 @@
+{
+  "name": "OTP Encryption App",
+  "short_name": "OTP App",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#1C1C1C",
+  "theme_color": "#FFA500",
+  "icons": [
+    {
+      "src": "path-to-192x192-icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "path-to-512x512-icon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

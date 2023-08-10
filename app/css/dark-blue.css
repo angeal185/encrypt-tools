@@ -1,0 +1,117 @@
+/* dark-blue.css */
+
+body {
+  background-color: #121212;
+  color: #00BFFF;
+}
+
+nav {
+  box-shadow: 0 0 8px black;
+}
+
+.container {
+  background-color: #202020;
+}
+
+/* Header */
+h1 {
+  color: #00BFFF;
+}
+
+/* Input fields and buttons */
+.form-group label {
+  color: #00BFFF;
+}
+
+.form-control::placeholder {
+  color: #00BFFF;
+  opacity: 0.6;
+}
+
+.form-control,
+.form-control:focus {
+  background-color: #202020;
+  color: #00BFFF;
+  border-color: #00BFFF;
+}
+
+.btn-primary {
+  background-color: #00BFFF;
+  border-color: #00BFFF;
+  color: #121212;
+}
+
+.btn-primary:hover {
+  background-color: #00AEEF;
+  border-color: #00AEEF;
+}
+
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 5px #00BFFF;
+  }
+  50% {
+    box-shadow: 0 0 20px #00BFFF;
+  }
+  100% {
+    box-shadow: 0 0 5px #00BFFF;
+  }
+}
+
+/* Ciphertext and Decrypted Message areas */
+#ciphertext,
+#decrypted,
+#generatedCiphertext,
+#Instructions {
+  background-color: #202020;
+  color: #00BFFF;
+  border-color: #00BFFF;
+}
+
+.menu-side {
+  background-color: #121212;
+  opacity: 0.8;
+}
+
+.menu-lnk {
+  border-bottom: 1px solid #00BFFF;
+}
+
+.menu-lnk:hover {
+  background-color: #00BFFF;
+}
+
+.menu-lnk:hover a {
+  color: #121212;
+}
+
+.menu-lnk a {
+  color: #00BFFF;
+}
+
+.menu-lnk .fa {
+  color: #00BFFF;
+}
+
+/* Navbar Bottom */
+nav.navbar.fixed-bottom {
+  background-color: #121212;
+}
+
+nav.navbar.fixed-bottom span {
+  color: #00BFFF;
+}
+
+hr {
+  border-top: 1px solid #00BFFF;
+}
+
+/* Card Styles */
+.card {
+  background-color: #202020;
+  color: #00BFFF;
+}
+
+.card-title {
+  color: #00BFFF;
+}
