@@ -1,3 +1,5 @@
+
+
 /*
 function redirectToHTTPS() {
   // Check if the current protocol is not HTTPS
