@@ -246,6 +246,10 @@ void function initGlobals(){
         name: 'CSP Generator'
       },
       {
+        href: './checksum',
+        name: 'Checksum Generator'
+      },
+      {
         href: './settings',
         name: 'Settings'
       }

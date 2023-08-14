@@ -83,16 +83,18 @@ window.onload = function () {
                   x('h5', { class: 'card-title mt-4' }, 'Network Status'),
                   x('i', {class: 'fa fa-3x fa-database mt-4 mb-4'}),
                   x('h4', {id: 'isOnline', class: ' mt-4 mb-4'},function(e){
-          
+
                     if(navigator.onLine){
                       setTimeout(function(){
                         document.getElementById('isOnline').classList.add('gtxt');
                       },1000)
                       return 'Online'
                     }
+
                     setTimeout(function(){
                       document.getElementById('isOnline').classList.add('rtxt');
                     },1000)
+                    
                     return 'Offline'
                   })
                 )

@@ -1,3 +1,5 @@
+// checksum.js
+
 window.onload = function () {
   const app = {
     build() {
@@ -15,7 +17,7 @@ window.onload = function () {
                 ele.classList.toggle('show');
               }
             }),
-            x('span', { class: 'navbar-brand text-light mb-0 h1' }, 'Hash Generator')
+            x('span', { class: 'navbar-brand text-light mb-0 h1' }, 'Checksum Generator')
           )
         ),
 
@@ -34,11 +36,11 @@ window.onload = function () {
         // Main container
         x('div', { class: 'container-fluid mt-4' },
           // Input row
-          x('h3', 'Hash Generator'),
+          x('h3', 'Checksum Generator'),
           x('div', { class: 'row' },
             x('div', { class: 'col-12' },
               x('div', { class: 'form-group' },
-                x('label', { class: 'l-txt', for: 'message' }, 'Message to Hash:'),
+                x('label', { class: 'l-txt', for: 'message' }, 'Data to Hash:'),
                 x('textarea', { class: 'form-control', id: 'message', rows: '6' })
               )
             )
@@ -48,24 +50,14 @@ window.onload = function () {
           x('div', { class: 'form-group' },
             x('label', { class: 'l-txt', for: 'hashAlgorithm' }, 'Select Hash Algorithm:'),
             x('select', { class: 'form-control', id: 'hashAlgorithm' },
-              x('option', { value: 'sha1' }, 'SHA-1'),
-              x('option', { value: 'sha256' }, 'SHA-256'),
-              x('option', { value: 'sha384' }, 'SHA-384'),
-              x('option', { value: 'sha512' }, 'SHA-512'),
-              x('option', { value: 'sha3-224' }, 'SHA3-224'),
-              x('option', { value: 'sha3-256' }, 'SHA3-256'),
-              x('option', { value: 'sha3-384' }, 'SHA3-384'),
-              x('option', { value: 'sha3-512' }, 'SHA3-512'),
-              x('option', { value: 'SHAKE128' }, 'SHAKE-128'),
-              x('option', { value: 'SHAKE256' }, 'SHAKE-256'),
-              x('option', { value: 'BLAKE2-256' }, 'BLAKE2-256'),
-              x('option', { value: 'BLAKE2-512' }, 'BLAKE2-512'),
-              x('option', { value: 'Whirlpool-512' }, 'Whirlpool-512')
+              x('option', { value: 'SHA-256' }, 'SHA-256'),
+              x('option', { value: 'SHA-384' }, 'SHA-384'),
+              x('option', { value: 'SHA-512' }, 'SHA-512')
             )
           ),
 
           // Generate Hash button
-          x('button', { class: 'btn btn-primary mt-2', id: 'generateHash' }, 'Generate Hash'),
+          x('button', { class: 'btn btn-primary mt-2', id: 'generateHash' }, 'Generate Checksum'),
 
           x('hr'),
 
@@ -73,7 +65,7 @@ window.onload = function () {
           x('div', { class: 'row' },
             x('div', { class: 'col-12' },
               x('div', { class: 'form-group' },
-                x('label', { class: 'l-txt', for: 'hashResult' }, 'Hash Result:'),
+                x('label', { class: 'l-txt', for: 'hashResult' }, 'Base64 Hash Result:'),
                 x('textarea', { class: 'form-control', id: 'hashResult', rows: '6', readonly: true })
               )
             )
@@ -84,16 +76,21 @@ window.onload = function () {
         // Instructions textarea
         x('div', { class: 'form-group mb-4' },
           x('label', { class: 'l-txt', for: 'instructions' }, 'Instructions:'),
-          x('textarea', { class: 'form-control', id: 'instructions', rows: '16', readonly: true }, 'Welcome to the Hash Generator!\n\nWith the Hash Generator, you can securely hash your messages using different hash algorithms. Hashing is a one-way process that converts your message into a fixed-size string of characters, providing data integrity and verifying data integrity.\n\nHere\'s how to use the Hash Generator:\n\n1. Enter your message in the "Message to Hash" input area.\n2. Choose the desired hash algorithm from the "Select Hash Algorithm" dropdown.\n3. Click the "Generate Hash" button to calculate the hash of your message.\n4. The generated hash will appear in the "Hash Result" area.\n5. You can copy the hash to use it as needed.\n\nRemember that hash functions are irreversible, meaning you cannot retrieve the original message from the hash. So, it is crucial to keep your original message safe.\n\nUse this tool responsibly, and enjoy secure hashing!\n')
-        ),
-        x('hr'),
-
-        // Navbar Bottom
-        x('nav', { class: 'navbar fixed-bottom bg-dark' },
-          x('div', { class: 'container-fluid jcc' },
-            x('span', {}, '2023')
+          x('textarea', { class: 'form-control', id: 'instructions', rows: '16', readonly: true },
+            'Welcome to the Checksum Generator!\n\n'+
+            'This tool allows you to calculate the checksum of data using various hash algorithms.\n\n'+
+            'Follow these steps:\n'+
+            '1. Enter the data you want to hash in the "Data to Hash" textarea.\n'+
+            '2. Select a hash algorithm from the dropdown.\n'+
+            '3. Click the "Generate Checksum" button.\n'+
+            '4. The calculated checksum will be displayed in the "Hash Result" textarea.\n'+
+            '5. For file integrity, copy the Base64-encoded hash.\n\n'+
+            'Note: The tool uses the SubtleCrypto API, so it is secure and efficient.\n'+
+            'Supported hash algorithms: SHA-256, SHA-384, SHA-512.\n\n'+
+            'Feel free to use this tool for secure data verification!\n'
           )
-        )
+        ),
+        x('hr')
       );
 
       return this;
@@ -106,101 +103,42 @@ window.onload = function () {
       delete this.build;
       delete menu
 
-        // Helper function to convert array buffer to hexadecimal string
-        function bufferToHexString(buffer) {
-          const byteArray = new Uint8Array(buffer);
-          return Array.from(byteArray, byte => byte.toString(16).padStart(2, '0')).join('');
+
+
+
+      const generateHashBtn = document.getElementById('generateHash');
+      const hashResultArea = document.getElementById('hashResult');
+
+      generateHashBtn.addEventListener('click', function () {
+
+        const messageInput = document.getElementById('message').value;
+        const algorithmSelect = document.getElementById('hashAlgorithm');
+        const selectedAlgorithm = algorithmSelect.value;
+        let hashResult;
+
+        try {
+          const encoder = new TextEncoder();
+          const data = encoder.encode(messageInput);
+          const hashBuffer = crypto.subtle.digest(selectedAlgorithm, data);
+
+          hashBuffer.then(function (hashArrayBuffer) {
+            const hashArray = new Uint8Array(hashArrayBuffer);
+            const hashBytes = Array.from(hashArray);
+            hashResult = hashBytes.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+            // Convert the hash bytes to Base64
+            const hashBase64 = btoa(hashBytes.reduce((data, byte) => data + String.fromCharCode(byte), ''));
+
+            hashResultArea.value = hashBase64;
+          });
+        } catch (error) {
+          console.error('Error calculating hash:', error);
         }
 
-        function sha3(message, variant) {
-          let shaobj;
+      });
 
-          switch (variant) {
-            case 224:
-              shaobj = new jsSHA('SHA3-224', 'TEXT');
-              shaobj.update(message);
-              return shaobj.getHash('HEX').toUpperCase();
-            case 256:
-              shaobj = new jsSHA('SHA3-256', 'TEXT');
-              shaobj.update(message);
-              return shaobj.getHash('HEX').toUpperCase();
-            case 384:
-              shaobj = new jsSHA('SHA3-384', 'TEXT');
-              shaobj.update(message);
-              return shaobj.getHash('HEX').toUpperCase();
-            case 512:
-              shaobj = new jsSHA('SHA3-512', 'TEXT');
-              shaobj.update(message);
-              return shaobj.getHash('HEX').toUpperCase();
-            default:
-              throw new Error('Unsupported SHA-3 variant.');
-          }
-        }
 
-    function generateHash(message, algorithm, callback) {
-      try {
-        if (algorithm === ('Whirlpool-512')) {
-          callback(wp.encSync(message, 'hex'));
-        } else if (algorithm.startsWith('sha3-')) {
-          const variant = parseInt(algorithm.substring(5), 10);
-          const hashResult = sha3(message, variant);
-          callback(hashResult);
-        } else if (algorithm === 'sha1') {
-          const shaObj = new jsSHA('SHA-1', 'TEXT');
-          shaObj.update(message);
-          callback(shaObj.getHash('HEX').toUpperCase());
-        } else if (algorithm === 'sha256') {
-          const shaObj = new jsSHA('SHA-256', 'TEXT');
-          shaObj.update(message);
-          callback(shaObj.getHash('HEX').toUpperCase());
-        } else if (algorithm === 'sha384') {
-          const shaObj = new jsSHA('SHA-384', 'TEXT');
-          shaObj.update(message);
-          callback(shaObj.getHash('HEX').toUpperCase());
-        } else if (algorithm === 'sha512') {
-          const shaObj = new jsSHA('SHA-512', 'TEXT');
-          shaObj.update(message);
-          callback(shaObj.getHash('HEX').toUpperCase());
-        } else if (algorithm === 'SHAKE128') {
-          const shaObj = new jsSHA('SHAKE128', 'TEXT');
-          shaObj.update(message);
-          callback(shaObj.getHash('HEX', {shakeLen: 128}).toUpperCase());
-        } else if (algorithm === 'SHAKE256') {
-          const shaObj = new jsSHA('SHAKE256', 'TEXT');
-          shaObj.update(message);
-          callback(shaObj.getHash('HEX', {shakeLen: 256}).toUpperCase());
-        } else if (algorithm === 'BLAKE2-256') {
-          const shaObj = blake.blake2sHex(message);
-          callback(shaObj.toUpperCase());
-        } else if (algorithm === 'BLAKE2-512') {
-          const shaObj = blake.blake2bHex(message);
-          callback(shaObj.toUpperCase());
-        } else {
-          throw new Error('Unsupported algorithm.');
-        }
-      } catch (error) {
-        console.error('Hashing error:', error);
       }
-    }
-            const generateHashBtn = document.getElementById('generateHash');
-            const hashResultArea = document.getElementById('hashResult');
-
-            generateHashBtn.addEventListener('click', function () {
-              const messageInput = document.getElementById('message').value;
-              const algorithmSelect = document.getElementById('hashAlgorithm');
-              const selectedAlgorithm = algorithmSelect.options[algorithmSelect.selectedIndex].value;
-
-              try {
-                generateHash(messageInput, selectedAlgorithm, function (hashResult) {
-                  hashResultArea.value = hashResult;
-                });
-              } catch (error) {
-                console.error('Hashing error:', error);
-              }
-            });
-
-            return this;
-          }
   };
 
 
