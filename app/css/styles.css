@@ -140,3 +140,11 @@ nav.navbar.fixed-bottom span {
     display: flex;
     justify-content: center;
 }
+
+.gtxt {
+  color: lime;
+}
+
+.rtxt {
+  color: red;
+}

@@ -44,6 +44,15 @@ window.onload = function () {
             x('div', { class: 'col-md-3 mb-3' },
               x('div', { class: 'card h-100', style: 'cursor: pointer'},
                 x('div', { class: 'card-body text-center' },
+                  x('h5', { class: 'card-title mt-4' }, 'User'),
+                  x('i', {class: 'fa fa-3x fa-user-secret mt-4 mb-4'}),
+                  x('h4', {class: ' mt-4 mb-4'}, 'Anon')
+                )
+              )
+            ),
+            x('div', { class: 'col-md-3 mb-3' },
+              x('div', { class: 'card h-100', style: 'cursor: pointer'},
+                x('div', { class: 'card-body text-center' },
                   x('h5', { class: 'card-title mt-4' }, 'Version'),
                   x('i', {class: 'fa fa-3x fa-code-fork mt-4 mb-4'}),
                   x('h4', {class: ' mt-4 mb-4'}, sdb.get('appVersion'))
@@ -71,9 +80,21 @@ window.onload = function () {
             x('div', { class: 'col-md-3 mb-3' },
               x('div', { class: 'card h-100', style: 'cursor: pointer'},
                 x('div', { class: 'card-body text-center' },
-                  x('h5', { class: 'card-title mt-4' }, 'Vault Entries'),
+                  x('h5', { class: 'card-title mt-4' }, 'Network Status'),
                   x('i', {class: 'fa fa-3x fa-database mt-4 mb-4'}),
-                  x('h4', {id: 'isOnline', class: ' mt-4 mb-4'})
+                  x('h4', {id: 'isOnline', class: ' mt-4 mb-4'},function(e){
+          
+                    if(navigator.onLine){
+                      setTimeout(function(){
+                        document.getElementById('isOnline').classList.add('gtxt');
+                      },1000)
+                      return 'Online'
+                    }
+                    setTimeout(function(){
+                      document.getElementById('isOnline').classList.add('rtxt');
+                    },1000)
+                    return 'Offline'
+                  })
                 )
               )
             )

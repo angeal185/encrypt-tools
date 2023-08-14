@@ -20,6 +20,24 @@ redirectToHTTPS();
 
 void function initGlobals(){
 
+
+  window.addEventListener('online', function() {
+    console.print([
+      { msg: '[NETWORK]: ', color: 'magenta' },
+      { msg: 'Status change ', color: 'brightCyan' },
+      { msg: 'online', color: 'brightGreen' }
+    ])
+  });
+
+  window.addEventListener('offline', function() {
+    console.print([
+      { msg: '[NETWORK]: ', color: 'magenta' },
+      { msg: 'Status change ', color: 'brightCyan' },
+      { msg: 'offline', color: 'red' }
+    ])
+
+  });
+
   void function consolePrint() {
 
 
@@ -176,59 +194,59 @@ void function initGlobals(){
 
     const menu = [
       {
-        href: './index.html',
+        href: './index',
         name: 'Dashboard'
       },
       {
-        href: './otp.html',
+        href: './otp',
         name: 'OTP'
       },
       {
-        href: './hash.html',
+        href: './hash',
         name: 'HASH'
       },
       {
-        href: './aes.html',
+        href: './aes',
         name: 'AES'
       },
       {
-        href: './shift-ciphers.html',
+        href: './shift-ciphers',
         name: 'Shift Ciphers'
       },
       {
-        href: './rsa-oaep.html',
+        href: './rsa-oaep',
         name: 'RSA-OAEP'
       },
       {
-        href: './ecdsa.html',
+        href: './ecdsa',
         name: 'ECDSA'
       },
       {
-        href: './rnd.html',
+        href: './rnd',
         name: 'Random Generation'
       },
       {
-        href: './encode.html',
+        href: './encode',
         name: 'Encode'
       },
       {
-        href: './hmac.html',
+        href: './hmac',
         name: 'HMAC'
       },
       {
-        href: './vault.html',
+        href: './vault',
         name: 'VAULT'
       },
       {
-        href: './qr.html',
+        href: './qr',
         name: 'QR Generator'
       },
       {
-        href: './csp.html',
+        href: './csp',
         name: 'CSP Generator'
       },
       {
-        href: './settings.html',
+        href: './settings',
         name: 'Settings'
       }
 
@@ -326,7 +344,6 @@ void function initGlobals(){
 
       get: function (key) {
         const database = JSON.parse(localStorage.getItem(this.databaseName));
-        console.log(database)
         const hexValue = database[key];
         // Convert the hexadecimal value back to the original string
         return hexToString(hexValue);
@@ -349,7 +366,7 @@ void function initGlobals(){
     window.sdb = new LocalStorageDB('settings');
 
     // myIndexedDB.js
-    if(href === '' || href === 'index.html' || href === 'vault.html' || href === 'settings.html'){
+    if(href === '' || href === 'index' || href === 'vault' || href === 'settings'){
 
       function MyIndexedDB(databaseName, storeName) {
         this.databaseName = databaseName;
@@ -705,7 +722,6 @@ void function initGlobals(){
 
     void function updateTheme(){
       let ctheme = sdb.get('theme');
-      console.log(ctheme)
       if(ctheme.current !== ctheme.default){
         let styl = document.getElementById('themeLnk'),
         themes = ctheme.themes;
